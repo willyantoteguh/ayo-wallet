@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\PaymentMethodController;
 use App\Http\Controllers\Api\TransferHistoryController;
 use App\Http\Controllers\Api\TransactionController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\WalletController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,5 +53,7 @@ Route::group(['middleware' => 'jwt.verify'], function ($router) {
     Route::get('user', [UserController::class, 'show']);
     Route::get('user/{username}', [UserController::class, 'getUserByUsername']);
     Route::put('user', [UserController::class, 'update']);
+
+    Route::get('wallets', [WalletController::class, 'show']);
 });
  
