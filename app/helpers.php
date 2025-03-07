@@ -44,3 +44,15 @@ function onPinChecker($pin) {
 
     return false;
 }
+
+function uploadBase64Image($base64Image) 
+{
+    $decoder = new Base64ImageDecoder($base64Image, $allowedFormats = ['jpeg', 'png', 'jpg']);
+
+    $decodedContent = $decoder->getDecodedContent();    //Dapatkan content gambar yg sudah terdecode
+    $format = $decoder->getFormat();    //Mendapatkan informasi format gambar
+    $image = Str::random(10).'.'.$format;   //Nama file gambar
+    Storage::disk('public')->put($image, $decodedContent);  //Simpan di Storage
+
+    return $image;
+}

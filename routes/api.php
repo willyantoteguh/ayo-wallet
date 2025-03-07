@@ -12,7 +12,7 @@ use App\Http\Controllers\Api\OperatorCardController;
 use App\Http\Controllers\Api\PaymentMethodController;
 use App\Http\Controllers\Api\TransferHistoryController;
 use App\Http\Controllers\Api\TransactionController;
-
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +28,8 @@ use App\Http\Controllers\Api\TransactionController;
 Route::post('register', [AuthController::class, 'register']);
 
 Route::post('login', [AuthController::class, 'login']);
+
+Route::post('is-email-exist', [UserController::class, 'isEmailExist']);
 
 Route::post('webhook', [WebhookController::class, 'update']);
 
@@ -46,5 +48,9 @@ Route::group(['middleware' => 'jwt.verify'], function ($router) {
     Route::get('transfer_history', [TransferHistoryController::class, 'index']);
 
     Route::get('transaction', [TransactionController::class, 'index']);
+
+    Route::get('user', [UserController::class, 'show']);
+    Route::get('user/{username}', [UserController::class, 'getUserByUsername']);
+    Route::put('user', [UserController::class, 'update']);
 });
  
