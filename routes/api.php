@@ -56,5 +56,7 @@ Route::group(['middleware' => 'jwt.verify'], function ($router) {
 
     Route::get('wallets', [WalletController::class, 'show']);
     Route::put('wallets', [WalletController::class, 'update']);
+
+    Route::post('logout', [AuthController::class, 'logout']);
 });
  
