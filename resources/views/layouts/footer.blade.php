@@ -5,5 +5,5 @@
     Anything you want
   </div>
   <!-- Default to the left -->
-  <strong>Copyright &copy; 2014-2021 <a href="#">BWA Bank</a>.</strong> All rights reserved.
+  <strong>Copyright &copy; 2014-2021 <a href="#">AYO Wallet</a>.</strong> All rights reserved.
 </footer>
